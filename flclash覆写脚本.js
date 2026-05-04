@@ -1,6 +1,7 @@
 const main = (config) => {
-//dns覆写
-config.dns = {
+  //dns覆写
+  config["dns"] ??= [];
+  config["dns"] = {
     enable: true,
     listen: "0.0.0.0:1053",
     ipv6: true,
@@ -37,37 +38,40 @@ config.dns = {
     ]
   };
 
-
-  //使用配置的代理节点
-  config.proxies ??= [];
-
-  //添加直连节点(如果没有)
-  const exists = config.proxies.some(p => p.name === "直连");
+  //添加直连节点
+  config["proxies"] ??= [];
+  const exists = config["proxies"].some(p => p.name === "➡️ 直连");
   if (!exists) {
-    config.proxies.push({
-      name: "直连",
+    config["proxies"].push({
+      name: "➡️ 直连",
       type: "direct",
       udp: true,
       "ip-version": "ipv4-prefer",
       "client-fingerprint": "chrome"
     });
   }
-  
-  const proxies = config.proxies.map(p => p.name);
+  const proxyNames = config["proxies"].map(p => p.name);
   
   // 覆写代理组
+  config["proxy-groups"] ??= [];
   config["proxy-groups"] = [
 
     {
-      name: "🚀 默认代理",
+      name: "🚀 国外代理",
       type: "select",
-      proxies: ["♻️ 自动选择", "🌐 手动选择", "🎯 全球直连"]
+      proxies: ["♻️ 自动选择", "🌐 手动选择", "➡️ 直连"]
+    },
+    
+    {
+      name: "🎯 国内代理",
+      type: "select",
+      proxies: ["➡️ 直连", "♻️ 自动选择", "🌐 手动选择"]
     },
 
     {
       name: "🐟 漏网之鱼",
       type: "select",
-      proxies: ["♻️ 自动选择", "🌐 手动选择", "🎯 全球直连"]
+      proxies: ["♻️ 自动选择", "🌐 手动选择", "➡️ 直连"]
     },
 
     {
@@ -76,45 +80,22 @@ config.dns = {
       url: "http://cp.cloudflare.com/generate_204",
       interval: 300,
       tolerance: 150,
-      proxies: proxies.filter(n => !n.includes("直连"))
+      proxies: proxyNames.filter(n => !n.includes("➡️ 直连"))
     },
 
     {
       name: "🌐 手动选择",
       type: "select",
-      proxies: proxies
-    },
-
-    {
-      name: "🎯 全球直连",
-      type: "select",
-      proxies: ["直连"]
+      proxies: proxyNames
     }
 
   ];
   
   
-  // 添加规则组
-  /*
-  const addGroup = (name, regex) => {
-    const list = proxies.filter(p => regex.test(p));
-    if (list.length > 0) {
-      config["proxy-groups"].push({
-        name,
-        type: "select",
-        proxies: list
-      });
-    }
-  };
-
-  addGroup("🇭🇰 港台", /(香港|HK|台湾|TW)/);
-  addGroup("🇯🇵 日韩新", /(日本|JP|韩国|KR|新加坡|SG)/);
-  addGroup("🇺🇸 欧美", /(美国|US|英国|UK|德国|DE)/);
-  */
   
   
-
   // 覆写规则链接
+  config["rule-providers"] ??= [];
   config["rule-providers"] = {
 
     private_ip: {
@@ -268,11 +249,12 @@ config.dns = {
 
 
   // 覆写规则
-  const DIRECT = "🎯 全球直连";
-  const PROXY = "🚀 默认代理";
+  const DIRECT = "🎯 国内代理";
+  const PROXY = "🚀 国外代理";
   const FINAL = "🐟 漏网之鱼";
-
-  config.rules = [
+  
+  config["rules"] ??= [];
+  config["rules"] = [
 
     // ===== 私有 =====
     `RULE-SET,private_ip,${DIRECT}`,
