@@ -1,6 +1,6 @@
 const main = (config) => {
   //dns覆写
-  config["dns"] ??= [];
+  config["dns"] ??= {};
   config["dns"] = {
     enable: true,
     listen: "0.0.0.0:1053",
@@ -95,7 +95,7 @@ const main = (config) => {
   
   
   // 覆写规则链接
-  config["rule-providers"] ??= [];
+  config["rule-providers"] ??= {};
   config["rule-providers"] = {
 
     private_ip: {
