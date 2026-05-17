@@ -101,144 +101,144 @@ const main = (config) => {
     private_ip: {
       type: "http",
       behavior: "ipcidr",
-      path: "./rule_provider/private_ip.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs",
+      path: "./rule_provider/private_ip.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml",
       interval: 86400
     },
 
     private_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/private_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
+      path: "./rule_provider/private_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml",
       interval: 86400
     },
 
     bilibili_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/bilibili_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs",
+      path: "./rule_provider/bilibili_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.yaml",
       interval: 86400
     },
 
     cn_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/cn_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
+      path: "./rule_provider/cn_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml",
       interval: 86400
     },
 
     github_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/github_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs",
+      path: "./rule_provider/github_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml",
       interval: 86400
     },
 
     google_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/google_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs",
+      path: "./rule_provider/google_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.yaml",
       interval: 86400
     },
 
     youtube_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/youtube_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs",
+      path: "./rule_provider/youtube_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.yaml",
       interval: 86400
     },
 
     tiktok_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/tiktok_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs",
+      path: "./rule_provider/tiktok_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.yaml",
       interval: 86400
     },
 
     netflix_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/netflix_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs",
+      path: "./rule_provider/netflix_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.yaml",
       interval: 86400
     },
 
     telegram_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/telegram_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs",
+      path: "./rule_provider/telegram_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.yaml",
       interval: 86400
     },
 
     nocn_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/nocn_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs",
+      path: "./rule_provider/nocn_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml",
       interval: 86400
     },
 
     gfw_domain: {
       type: "http",
       behavior: "domain",
-      path: "./rule_provider/gfw_domain.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs",
+      path: "./rule_provider/gfw_domain.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.yaml",
       interval: 86400
     },
 
     cn_ip: {
       type: "http",
       behavior: "ipcidr",
-      path: "./rule_provider/cn_ip.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
+      path: "./rule_provider/cn_ip.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml",
       interval: 86400
     },
 
     google_ip: {
       type: "http",
       behavior: "ipcidr",
-      path: "./rule_provider/google_ip.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
+      path: "./rule_provider/google_ip.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.yaml",
       interval: 86400
     },
 
     netflix_ip: {
       type: "http",
       behavior: "ipcidr",
-      path: "./rule_provider/netflix_ip.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
+      path: "./rule_provider/netflix_ip.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.yaml",
       interval: 86400
     },
 
     telegram_ip: {
       type: "http",
       behavior: "ipcidr",
-      path: "./rule_provider/telegram_ip.mrs",
-      format: "mrs",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs",
+      path: "./rule_provider/telegram_ip.yaml",
+      format: "yaml",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.yaml",
       interval: 86400
     }
 
