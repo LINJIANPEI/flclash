@@ -8,34 +8,31 @@ const main = (config) => {
 
     // ===== 核心：全部走本地 DNS =====
     nameserver: [
-      "tcp://127.0.0.1:5591",
-      "tcp://[::1]:5591"
+      "127.0.0.1:5591"
     ],
 
     // ===== 备用也指向本地（避免泄漏）=====
     default_nameserver: [
-      "tcp://127.0.0.1:5591",
-      "tcp://[::1]:5591"
+      "127.0.0.1:5591"
     ],
 
     fallback: [
-      "tcp://127.0.0.1:5591",
-      "tcp://[::1]:5591"
+      "127.0.0.1:5591"
     ],
-
-    // ===== 不做分流 =====
-    nameserver_policy: {},
-
-    // ===== 可选：fake-ip（看你本地DNS是否支持）=====
-    enhanced_mode: "fake-ip",
-    fake_ip_range: "198.18.0.1/16",
-
-    fake_ip_filter: [
-      "*.lan",
-      "*.local",
-      "*.msftconnecttest.com",
-      "*.msftncsi.com"
-    ]
+    enhanced_mode: "redir-host",
+    
+  };
+  
+  config["sniffer"] ??= {};
+  config["sniffer"] = {
+    enable: true,
+    sniff:{
+    HTTP:{ports: [80, "8080-8880"],"override-destination": true},
+    TLS:{ports: [443, 8443]},
+    QUIC:{ports: [443, 8443]}
+    },
+  "skip-domain":["Mijia Cloud","+.push.apple.com"]
+    
   };
 
   //添加直连节点
@@ -51,7 +48,7 @@ const main = (config) => {
     });
   }
   const proxyNames = config["proxies"].map(p => p.name);
-  
+
   // 覆写代理组
   config["proxy-groups"] ??= [];
   config["proxy-groups"] = [
@@ -61,7 +58,7 @@ const main = (config) => {
       type: "select",
       proxies: ["♻️ 自动选择", "🌐 手动选择", "➡️ 直连"]
     },
-    
+
     {
       name: "🎯 国内代理",
       type: "select",
@@ -90,10 +87,10 @@ const main = (config) => {
     }
 
   ];
-  
-  
-  
-  
+
+
+
+
   // 覆写规则链接
   config["rule-providers"] ??= {};
   config["rule-providers"] = {
@@ -243,16 +240,16 @@ const main = (config) => {
     }
 
   };
-  
-  
-  
+
+
+
 
 
   // 覆写规则
   const DIRECT = "🎯 国内代理";
   const PROXY = "🚀 国外代理";
   const FINAL = "🐟 漏网之鱼";
-  
+
   config["rules"] ??= [];
   config["rules"] = [
 
