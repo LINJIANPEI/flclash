@@ -8,21 +8,24 @@ const main = (config) => {
 
     // ===== 核心：全部走本地 DNS =====
     nameserver: [
+      "tcp://127.0.0.1:5591",
       "127.0.0.1:5591"
     ],
 
     // ===== 备用也指向本地（避免泄漏）=====
     default_nameserver: [
+      "tcp://127.0.0.1:5591",
       "127.0.0.1:5591"
     ],
 
     fallback: [
+      "tcp://127.0.0.1:5591",
       "127.0.0.1:5591"
     ],
     enhanced_mode: "redir-host",
-    
+
   };
-  
+
   config["sniffer"] ??= {};
   config["sniffer"] = {
     enable: true,
@@ -32,7 +35,7 @@ const main = (config) => {
     QUIC:{ports: [443, 8443]}
     },
   "skip-domain":["Mijia Cloud","+.push.apple.com"]
-    
+
   };
 
   //添加直连节点
