@@ -90,7 +90,7 @@ const main = (config) => {
       "include-all": true,
       proxies: [中国自动选择], 
       filter: "(?i)(🇨🇳|中国|cn|china|CN)",
-      exclude-filter: "(?i)(台湾|tw|taiwan|TW)"
+      "exclude-filter": "(?i)(台湾|tw|taiwan|TW)"
     },
 
     {
@@ -197,9 +197,128 @@ const main = (config) => {
       proxies: [♻️ 自动选择]
     },
 
+    {
+      name: "中国自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇨🇳|中国|cn|china|CN)", 
+      "exclude-filter": "(?i)(台湾|tw|taiwan|TW)"
+    },
+
+    {
+      name: "香港自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇭🇰|香港|hk|hongkong|hong kong|HK)"
+    },
+
+    {
+      name: "台湾自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇹🇼|台湾|tw|taiwan|TW)"
+    },
+
+    {
+      name: "日本自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇯🇵|日|jp|japan|JP)"
+    },
+
+    {
+      name: "美国自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "((?i)(🇺🇸|美|us|unitedstates|united states|US)"
+    },
+
+    {
+      name: "英国自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇬🇧|英国|uk|英国|England|UK)"
+    },
 
 
-      
+    {
+      name: "新加坡自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "(?i)(🇸🇬|新加坡|sg|singapore|SG)"
+    },
+
+    {
+      name: "♻️ 自动选择",
+      type: "url-test",
+      interval: 300,
+      tolerance: 100,
+      "health-check":
+        enable: true,
+        url: "https://www.gstatic.com/generate_204",
+        interval: 120,
+        timeout: 3000,
+      "include-all": true,
+      hidden: true, 
+      filter: "^((?!(直连)).)*$"
+    },
+
       
   ];
 
