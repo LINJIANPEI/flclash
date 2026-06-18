@@ -59,36 +59,148 @@ const main = (config) => {
     {
       name: "🚀 国外代理",
       type: "select",
-      proxies: ["♻️ 自动选择", "🌐 手动选择", "➡️ 直连"]
+      proxies: ["♻️ 自动选择", "➡️ 直连", "🇭🇰 香港", "🇹🇼 台湾", "🇯🇵 日本", "🇸🇬 新加坡", "🇬🇧 英国", "🇺🇸 美国", "🌐 全部节点"],
+      "disable-udp":"false"
     },
 
     {
       name: "🎯 国内代理",
       type: "select",
-      proxies: ["➡️ 直连", "♻️ 自动选择", "🌐 手动选择"]
+      proxies: ["➡️ 直连", "🇨🇳 中国", "♻️ 自动选择"],
+      "disable-udp":"false"
     },
 
     {
       name: "🐟 漏网之鱼",
       type: "select",
-      proxies: ["♻️ 自动选择", "🌐 手动选择", "➡️ 直连"]
+      proxies: ["♻️ 自动选择", "➡️ 直连", "🇭🇰 香港", "🇹🇼 台湾", "🇯🇵 日本", "🇸🇬 新加坡", "🇬🇧 英国", "🇺🇸 美国", "🌐 全部节点"],
+      "disable-udp":"false"
     },
 
     {
-      name: "♻️ 自动选择",
-      type: "url-test",
-      url: "http://cp.cloudflare.com/generate_204",
-      interval: 300,
-      tolerance: 150,
-      proxies: proxyNames.filter(n => !n.includes("➡️ 直连"))
+      name: "🇨🇳 中国",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [中国自动选择], 
+      filter: "(?i)(🇨🇳|中国|cn|china|CN)",
+      exclude-filter: "(?i)(台湾|tw|taiwan|TW)"
     },
 
     {
-      name: "🌐 手动选择",
-      type: "select",
-      proxies: proxyNames
-    }
+      name: "🇭🇰 香港",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [香港自动选择], 
+      filter: "(?i)(🇭🇰|香港|hk|hongkong|hong kong|HK)"
+    },
 
+    {
+      name: "🇹🇼 台湾",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [台湾自动选择], 
+      filter: "(?i)(🇹🇼|台湾|tw|taiwan|TW)"
+    },
+
+    {
+      name: "🇯🇵 日本",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [日本自动选择], 
+      filter: "(?i)(🇯🇵|日|jp|japan|JP)"
+    },
+
+    {
+      name: "🇺🇸 美国",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [美国自动选择], 
+      filter: "(?i)(🇺🇸|美|us|unitedstates|united states|US)"
+    },
+
+    {
+      name: "🇬🇧 英国",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [英国自动选择], 
+      filter: "(?i)(🇬🇧|英国|uk|英国|England|UK)"
+    },
+
+    {
+      name: "🇸🇬 新加坡",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [新加坡自动选择], 
+      filter: "(?i)(🇸🇬|新加坡|sg|singapore|SG)"
+    },
+
+    {
+      name: "🌐 全部节点",
+      type: select,
+      interval: 3600,
+      "health-check":{
+        enable: "true"
+        url: "https://www.gstatic.com/generate_204"
+        interval: "300"
+        timeout: "3000"
+     },
+      "include-all": true,
+      proxies: [♻️ 自动选择]
+    },
+
+
+
+      
+      
   ];
 
 
