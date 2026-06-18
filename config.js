@@ -87,7 +87,7 @@ const main = (config) => {
 
     {
       name: "🇨🇳 中国",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -96,14 +96,14 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [中国自动选择],
+      proxies: ["中国自动选择"],
       filter: "(?i)(🇨🇳|中国|cn|china|CN)",
       "exclude-filter": "(?i)(台湾|tw|taiwan|TW)",
     },
 
     {
       name: "🇭🇰 香港",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -112,13 +112,13 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [香港自动选择],
+      proxies: ["香港自动选择"],
       filter: "(?i)(🇭🇰|香港|hk|hongkong|hong kong|HK)",
     },
 
     {
       name: "🇹🇼 台湾",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -127,13 +127,13 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [台湾自动选择],
+      proxies: ["台湾自动选择"],
       filter: "(?i)(🇹🇼|台湾|tw|taiwan|TW)",
     },
 
     {
       name: "🇯🇵 日本",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -142,13 +142,13 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [日本自动选择],
+      proxies: ["日本自动选择"],
       filter: "(?i)(🇯🇵|日|jp|japan|JP)",
     },
 
     {
       name: "🇺🇸 美国",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -157,13 +157,13 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [美国自动选择],
+      proxies: ["美国自动选择"],
       filter: "(?i)(🇺🇸|美|us|unitedstates|united states|US)",
     },
 
     {
       name: "🇬🇧 英国",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -172,13 +172,13 @@ const main = (config) => {
         timeout: "3000",
       },
       "include-all": true,
-      proxies: [英国自动选择],
+      proxies: ["英国自动选择"],
       filter: "(?i)(🇬🇧|英国|uk|英国|England|UK)",
     },
 
     {
       name: "🇸🇬 新加坡",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -193,7 +193,7 @@ const main = (config) => {
 
     {
       name: "🌐 全部节点",
-      type: select,
+      type: "select",
       interval: 3600,
       "health-check": {
         enable: "true",
@@ -283,7 +283,7 @@ const main = (config) => {
       },
       "include-all": true,
       hidden: true,
-      filter: "((?i)(🇺🇸|美|us|unitedstates|united states|US)",
+      filter: "(?i)(🇺🇸|美|us|unitedstates|united states|US)",
     },
 
     {
