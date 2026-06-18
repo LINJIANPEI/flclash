@@ -58,14 +58,14 @@ const main = (config) => {
         "🇺🇸 美国",
         "🌐 全部节点",
       ],
-      "disable-udp": "false",
+      "disable-udp": false,
     },
 
     {
       name: "🎯 国内代理",
       type: "select",
       proxies: ["➡️ 直连", "🇨🇳 中国", "♻️ 自动选择"],
-      "disable-udp": "false",
+      "disable-udp": false,
     },
 
     {
@@ -82,7 +82,7 @@ const main = (config) => {
         "🇺🇸 美国",
         "🌐 全部节点",
       ],
-      "disable-udp": "false",
+      "disable-udp": false,
     },
 
     {
