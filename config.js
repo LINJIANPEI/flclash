@@ -342,11 +342,11 @@ const main = (config) => {
   config["geodata-loader"] = "memconservative";
   config["geo-auto-update"] = true;
   config["geo-update-interval"] = 24;
-  config["geox-url"] = {};
-  config["rule-providers"] = {
+  config["geox-url"] = {
     "geosite": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geosite.dat",
     "geoip": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geoip.dat"
   };
+  config["rule-providers"] ??= {};
 
 
 
