@@ -1,3 +1,4 @@
+
 const main = (config) => {
   //dns覆写
   config["dns"] ??= {};
@@ -336,152 +337,18 @@ const main = (config) => {
   ];
 
   // 覆写规则链接
-  config["rule-providers"] ??= {};
+  config["geodata-mode"] = true;
+  config["geosite-matche"] = "succinct";
+  config["geodata-loader"] = "memconservative";
+  config["geo-auto-update"] = true;
+  config["geo-update-interval"] = 24;
+  config["geox-url"] = {};
   config["rule-providers"] = {
-    private_ip: {
-      type: "http",
-      behavior: "ipcidr",
-      path: "./rule_provider/private_ip.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml",
-      interval: 86400,
-    },
-
-    private_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/private_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml",
-      interval: 86400,
-    },
-
-    bilibili_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/bilibili_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.yaml",
-      interval: 86400,
-    },
-
-    cn_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/cn_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml",
-      interval: 86400,
-    },
-
-    github_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/github_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml",
-      interval: 86400,
-    },
-
-    google_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/google_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.yaml",
-      interval: 86400,
-    },
-
-    youtube_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/youtube_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.yaml",
-      interval: 86400,
-    },
-
-    tiktok_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/tiktok_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.yaml",
-      interval: 86400,
-    },
-
-    netflix_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/netflix_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.yaml",
-      interval: 86400,
-    },
-
-    telegram_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/telegram_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.yaml",
-      interval: 86400,
-    },
-
-    nocn_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/nocn_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml",
-      interval: 86400,
-    },
-
-    gfw_domain: {
-      type: "http",
-      behavior: "domain",
-      path: "./rule_provider/gfw_domain.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.yaml",
-      interval: 86400,
-    },
-
-    cn_ip: {
-      type: "http",
-      behavior: "ipcidr",
-      path: "./rule_provider/cn_ip.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml",
-      interval: 86400,
-    },
-
-    google_ip: {
-      type: "http",
-      behavior: "ipcidr",
-      path: "./rule_provider/google_ip.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.yaml",
-      interval: 86400,
-    },
-
-    netflix_ip: {
-      type: "http",
-      behavior: "ipcidr",
-      path: "./rule_provider/netflix_ip.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.yaml",
-      interval: 86400,
-    },
-
-    telegram_ip: {
-      type: "http",
-      behavior: "ipcidr",
-      path: "./rule_provider/telegram_ip.yaml",
-      format: "yaml",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.yaml",
-      interval: 86400,
-    },
+    "geosite": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geosite.dat",
+    "geoip": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geoip.dat"
   };
+
+
 
   // 覆写规则
   const DIRECT = "🎯 国内代理";
@@ -490,30 +357,11 @@ const main = (config) => {
 
   config["rules"] ??= [];
   config["rules"] = [
-    // ===== 私有 =====
-    `RULE-SET,private_ip,${DIRECT}`,
-    `RULE-SET,private_domain,${DIRECT}`,
-
-    // ===== 国内 =====
-    `RULE-SET,bilibili_domain,${DIRECT}`,
-    `RULE-SET,cn_domain,${DIRECT}`,
-    `RULE-SET,cn_ip,${DIRECT}`,
-
-    // ===== 代理 =====
-    `RULE-SET,github_domain,${PROXY}`,
-    `RULE-SET,google_domain,${PROXY}`,
-    `RULE-SET,youtube_domain,${PROXY}`,
-    `RULE-SET,tiktok_domain,${PROXY}`,
-    `RULE-SET,netflix_domain,${PROXY}`,
-    `RULE-SET,telegram_domain,${PROXY}`,
-    `RULE-SET,gfw_domain,${PROXY}`,
-    `RULE-SET,nocn_domain,${PROXY}`,
-
-    `RULE-SET,google_ip,${PROXY}`,
-    `RULE-SET,netflix_ip,${PROXY}`,
-    `RULE-SET,telegram_ip,${PROXY}`,
-
-    // ===== 兜底 =====
+    `GEOSITE,cn,${DIRECT}`,
+    `GEOIP,cn,${DIRECT}`,
+    `GEOSITET,cdn,${DIRECT}`,
+    `GEOIP,nocnp,${PROXY}`,
+    `GEOIP,nocn,${PROXY}`,
     `MATCH,${FINAL}`,
   ];
 
