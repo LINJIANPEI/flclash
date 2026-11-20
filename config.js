@@ -359,7 +359,7 @@ const main = (config) => {
   config["rules"] = [
     `GEOSITE,cn,${DIRECT}`,
     `GEOIP,cn,${DIRECT}`,
-    `GEOSITET,cdn,${DIRECT}`,
+    `GEOSITE,cdn,${DIRECT}`,
     `GEOIP,nocnp,${PROXY}`,
     `GEOIP,nocn,${PROXY}`,
     `MATCH,${FINAL}`,
