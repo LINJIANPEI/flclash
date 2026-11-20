@@ -1,4 +1,3 @@
-
 const main = (config) => {
   //dns覆写
   config["dns"] ??= {};
@@ -343,12 +342,12 @@ const main = (config) => {
   config["geo-auto-update"] = true;
   config["geo-update-interval"] = 24;
   config["geox-url"] = {
-    "geosite": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geosite.dat",
-    "geoip": "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geoip.dat"
+    geosite:
+      "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geosite.dat",
+    geoip:
+      "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geoip.dat",
   };
   config["rule-providers"] ??= {};
-
-
 
   // 覆写规则
   const DIRECT = "🎯 国内代理";
@@ -357,6 +356,8 @@ const main = (config) => {
 
   config["rules"] ??= [];
   config["rules"] = [
+    `GEOSITE,private,${DIRECT}`,
+    `GEOIP,private,${DIRECT}`,
     `GEOSITE,cn,${DIRECT}`,
     `GEOIP,cn,${DIRECT}`,
     `GEOSITE,cdn,${DIRECT}`,
