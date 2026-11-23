@@ -349,6 +349,39 @@ const main = (config) => {
   };
   config["rule-providers"] ??= {};
 
+  config["sniffer"] ??= {};
+  config["sniffer"] = {
+    enable: true,
+    "force-dns-mapping": true,
+    "parse-pure-ip": true,
+    "override-destination": false,
+    sniff: {
+      HTTP: {
+        ports: [80, 8080 - 8880],
+        "override-destination": false,
+      },
+      TLS: {
+        ports: [443, 8443],
+      },
+      QUIC: {
+        ports: [443, 8443],
+      },
+    },
+    "force-domain": [
+      "+.netflix.com",
+      "+.nflxvideo.net",
+      "+.amazonaws.com",
+      "+.media.dssott.com",
+    ],
+    "skip-domain": [
+      "Mijia Cloud",
+      "dlg.io.mi.com",
+      "+.oray.com",
+      "+.sunlogin.net",
+      "+.push.apple.com",
+    ],
+  };
+
   // 覆写规则
   const DIRECT = "🎯 国内代理";
   const PROXY = "🚀 国外代理";
