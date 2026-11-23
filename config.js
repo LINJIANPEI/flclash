@@ -343,9 +343,9 @@ const main = (config) => {
   config["geo-update-interval"] = 24;
   config["geox-url"] = {
     geosite:
-      "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geosite.dat",
+      "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat",
     geoip:
-      "https://github.com/LINJIANPEI/mosdnsRules/releases/latest/download/geoip.dat",
+      "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat",
   };
   config["rule-providers"] ??= {};
 
@@ -360,9 +360,7 @@ const main = (config) => {
     `GEOIP,private,${DIRECT}`,
     `GEOSITE,cn,${DIRECT}`,
     `GEOIP,cn,${DIRECT}`,
-    `GEOSITE,cdn,${DIRECT}`,
-    `GEOIP,nocnp,${PROXY}`,
-    `GEOIP,nocn,${PROXY}`,
+    `GEOSITE,geolocation-!cn,${PROXY}`,
     `MATCH,${FINAL}`,
   ];
 
