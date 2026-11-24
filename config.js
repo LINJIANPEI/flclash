@@ -349,7 +349,6 @@ const main = (config) => {
   };
   config["rule-providers"] ??= {};
 
-  config["sniffer"] ??= {};
   config["sniffer"] = {
     enable: true,
     "force-dns-mapping": true,
@@ -357,6 +356,7 @@ const main = (config) => {
     "override-destination": false,
     sniff: {
       HTTP: {
+        ports: [80, "8080-8880"],
         "override-destination": false,
       },
       TLS: {
