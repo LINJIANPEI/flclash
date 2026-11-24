@@ -357,14 +357,13 @@ const main = (config) => {
     "override-destination": false,
     sniff: {
       HTTP: {
-        ports: "[80, 8080-8880]",
         "override-destination": false,
       },
       TLS: {
-        ports: "[443, 8443]",
+        ports: [443, 8443],
       },
       QUIC: {
-        ports: "[443, 8443]",
+        ports: [443, 8443],
       },
     },
     "force-domain": [
